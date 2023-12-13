@@ -21,12 +21,9 @@ for i in range(len(chapters)):
 
 embedded_question = embeddings_model.embed_query("What are the flaws of philosophers?")
 similarities = [] 
-similarities2 = [] 
 tags = []
 for i2 in range(len(emb_list)):
     similarities.append(cosine_similarity(emb_list[i2], embedded_question))
-    similarities2.append(cosine_similarity(emb_list[i2], embedded_question))
     tags.append(f"CHAPTER {i2}")
 
-similarities.sort()
-print(tags[similarities2.index(similarities[-1])])
+print(tags[similarities.index(max(similarities))])
