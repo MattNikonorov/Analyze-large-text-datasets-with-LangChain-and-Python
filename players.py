@@ -49,42 +49,17 @@ for pi in range(len(players)):
             # time.sleep(10) if you hit rate limits
 
     for chi in range(1, len(ch), 1):
-        if ch[chi]["age"] > ch[0]["age"]:
+        if (ch[chi]["age"] > ch[0]["age"]) or (ch[0]["age"] == "not found" and ch[chi]["age"] != "not found"):
             ch[0]["age"] = ch[chi]["age"]
             break
-        else:
-            continue
-
-    if ch[0]["age"] == "not found":
-        for chi in range(1, len(ch), 1):
-            if ch[chi]["age"] != "not found":
-                ch[0]["age"] = ch[chi]["age"]
-                break
-            else:
-                continue
-
-    if ch[0]["height"] == "not found":
-        for chi in range(1, len(ch), 1):
-            if ch[chi]["height"] != "not found":
-                ch[0]["height"] = ch[chi]["height"]
-                break
-            else:
-                continue
-                
-    for chi in range(1, len(ch), 1):
-        if ch[chi]["serve"] > ch[0]["serve"]:
+        if (ch[chi]["serve"] > ch[0]["serve"]) or (ch[0]["serve"] == "not found" and ch[chi]["serve"] != "not found"):
             ch[0]["serve"] = ch[chi]["serve"]
+            break
+        if (ch[0]["height"] == "not found") and (ch[chi]["height"] != "not found"):
+            ch[0]["height"] = ch[chi]["height"]
             break
         else:
             continue
-
-    if ch[0]["serve"] == "not found":
-        for chi in range(1, len(ch), 1):
-            if ch[chi]["serve"] != "not found":
-                ch[0]["serve"] = ch[chi]["serve"]
-                break
-            else:
-                continue
 
     print("\n\n")
     json_object = json.dumps(ch[0], indent=4)
