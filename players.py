@@ -51,13 +51,10 @@ for pi in range(len(players)):
     for chi in range(1, len(ch), 1):
         if (ch[chi]["age"] > ch[0]["age"]) or (ch[0]["age"] == "not found" and ch[chi]["age"] != "not found"):
             ch[0]["age"] = ch[chi]["age"]
-            break
         if (ch[chi]["serve"] > ch[0]["serve"]) or (ch[0]["serve"] == "not found" and ch[chi]["serve"] != "not found"):
             ch[0]["serve"] = ch[chi]["serve"]
-            break
         if (ch[0]["height"] == "not found") and (ch[chi]["height"] != "not found"):
             ch[0]["height"] = ch[chi]["height"]
-            break
         else:
             continue
 
